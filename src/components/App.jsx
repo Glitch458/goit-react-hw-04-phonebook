@@ -17,14 +17,9 @@ const App = () => {
   );
   const [filter, setFilter] = useState('');
 
-  useEffect(
-    prevState => {
-      if (prevState !== contacts) {
-        localStorage.setItem(LOC_ST, JSON.stringify(contacts));
-      }
-    },
-    [contacts]
-  );
+  useEffect(() => {
+    localStorage.setItem(LOC_ST, JSON.stringify(contacts));
+  }, [contacts]);
 
   const submitHandler = newContact => {
     const checkNewName = contacts.find(
